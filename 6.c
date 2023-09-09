@@ -5,12 +5,16 @@
 
 int main(void)
 {
-	int fd;
-	char buf[100];
-	fd= open("newfile",O_WRONLY);
-	printf("Enter the text: ");
-	scanf("%[^\n}",buf);
-        write(fd,buf,sizeof(buf));
-	printf("%s\n",buf);
+	char buf[100] ;
+        int readcnt;
+         readcnt= read(0,buf,sizeof(buf));
+
+         write(1,buf, readcnt);
+
+         close(0);
+         close(1);
+
+         return 0;
+
 
 }
