@@ -3,29 +3,15 @@
 #include <fcntl.h>
 #include <unistd.h>
 
-int main() {
+void main() {
     
-    for (int i = 0; i < 5; ++i) {
-        char file[20];
-        snprintf(file, sizeof(file), "file%d.txt", i);
+    while(1){
+  creat("f1.txt", O_CREAT);
+  creat("f2.txt", O_CREAT);
+  creat("f3.txt", O_CREAT);
+  creat("f4.txt", O_CREAT);
+  creat("f5.txt", O_CREAT);
+  }
 
-        int fd = open(file, O_WRONLY | O_CREAT | O_TRUNC, 0644);
 
-        if (fd == -1) {
-            perror("Error opening file");
-            return 1;
-        }
-
-        printf("File %s opened successfully with File Descriptor: %d\n", file, fd);
-    }
-
-    printf("Process ID: %d\n", getpid());
-
-    // Run an infinite loop to keep the program running
-    while (1) {
-        sleep(1);
-    }
-
-    return 0;
-}
 
